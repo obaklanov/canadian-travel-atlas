@@ -40,6 +40,26 @@ async function animateCountryMap(key, name) {
   const start=[0,0,1000,520];
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const duration=reduced?0:1550;
+  let alignedOffset = 0;
+  const alignDuringZoom = key === 'mexico' && !matchMedia('(max-width:700px)').matches;
+  if (alignDuringZoom) {
+    // Resolve the exact settled geometry before the first painted frame.
+    host.style.transition = 'none';
+    panel.classList.add('map-ready');
+    svg.setAttribute('viewBox',target.join(' '));
+    const hostStyle = getComputedStyle(host);
+    const geometry = Object.fromEntries(['top','left','right','bottom','height','maxHeight'].map(property=>[property,hostStyle[property]]));
+    const svgStyle = getComputedStyle(svg);
+    const finalTransform = svgStyle.transform, finalOrigin = svgStyle.transformOrigin;
+    Object.assign(host.style,geometry);
+    svg.style.transform = finalTransform;
+    svg.style.transformOrigin = finalOrigin;
+    const label = panel.querySelector('.facts-sources summary');
+    alignedOffset = label.getBoundingClientRect().left - svg.querySelector('.selected-country').getBoundingClientRect().left;
+    panel.classList.remove('map-ready');
+    svg.setAttribute('viewBox',start.join(' '));
+    host.style.translate = '0px 0';
+  }
   let began;
   function frame(now) {
     if(sequence!==mapSequence || !panel.open || !host.isConnected)return;
@@ -47,9 +67,10 @@ async function animateCountryMap(key, name) {
     const t=duration?Math.min((now-began)/duration,1):1;
     const ease=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
     svg.setAttribute('viewBox',start.map((v,i)=>v+(target[i]-v)*ease).join(' '));
+    if (alignDuringZoom) host.style.translate = (alignedOffset * ease)+'px 0';
     svg.querySelectorAll('.other-country').forEach(p=>p.style.opacity=String(1-Math.min(t*1.7,1)));
     if(t<1)requestAnimationFrame(frame);
-    else {panel.classList.add('map-ready');panel.querySelector('.map-status').textContent=name+' / YOUR DESTINATION'; if(key==='mexico')setTimeout(()=>{if(sequence===mapSequence)alignMexicoOutline();},reduced?0:750);}
+    else {panel.classList.add('map-ready');panel.querySelector('.map-status').textContent=name+' / YOUR DESTINATION';}
   }
   requestAnimationFrame(frame);
 }
