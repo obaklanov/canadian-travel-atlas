@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A Canadian head start on your next adventure. Explore destinations, find official travel information and build your before-you-go checklist.">
+  <meta name="theme-color" content="#f7f5ef"><title>Canadian Travel Atlas — A Canadian head start</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#destinations">Skip to destinations</a>
+<header class="site-header wrap">
+  <a class="brand" href="#" aria-label="Canadian Travel Atlas home"><span class="brand-icon" aria-hidden="true">✳</span><span>CANADIAN<br>TRAVEL ATLAS<span class="brand-dot">.</span></span></a>
+  <nav aria-label="Main navigation"><a href="#destinations">The destinations</a><a href="#perspective">Our perspective</a><a class="nav-cta" href="#checklist">Before you go <span aria-hidden="true">↗</span></a></nav>
+</header>
+<main>
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="tiny-leaf" aria-hidden="true">✳</span> FROM CANADA. TO EVERYWHERE.</p>
+      <h1 id="hero-title">A world to explore.<br>A <em>Canadian</em><br>head start.</h1>
+      <p class="intro">The little things to know before the big adventure.<br>Find your destination. Get your bearings. Go prepared.</p>
+      <form id="destination-search" class="destination-search">
+        <label for="destination">WHERE ARE YOU HEADED?</label>
+        <div class="search-row"><span aria-hidden="true" class="search-icon">⌕</span><input id="destination" list="country-options" placeholder="Find a country…" autocomplete="off"><datalist id="country-options"><option value="Japan"><option value="Portugal"><option value="Mexico"><option value="Thailand"></datalist><button type="submit" aria-label="Find destination">Explore <span aria-hidden="true">↗</span></button></div>
+      </form>
+      <p id="search-message" class="search-message" role="status"></p>
+      <div class="quick-picks"><span>Start somewhere:</span><button data-guide="japan">Japan</button><button data-guide="portugal">Portugal</button><button data-guide="mexico">Mexico</button></div>
+      <div class="hero-note"><span class="line"></span> Less tab-hopping. More looking forward.</div>
+    </div>
+    <div class="hero-visual">
+      <img class="hero-photo" src="images/japan.jpg" alt="A Kyoto street leading to Yasaka Pagoda at dusk" width="1500" height="1800" fetchpriority="high">
+      <div class="photo-shade"></div><div class="photo-top"><span>THE WORLD IS CALLING</span><span>01 / 04</span></div>
+      <div class="photo-caption"><p>Inspiration is the beginning.</p><span>We’ll help with what comes next.</span><button data-guide="japan" aria-label="Open Japan destination starter">↗</button></div>
+      <div class="passport-stamp" aria-hidden="true"><span>CANADIAN PERSPECTIVE</span><b>CA ↗</b><span>CURIOUS BY NATURE</span></div>
+    </div>
+  </section>
+  <div class="foundation wrap"><span><b>01</b> Your passport in mind</span><span><b>02</b> Practical details, clearly organised</span><span><b>03</b> Official sources within reach</span></div>
+  <section id="destinations" class="destinations wrap" aria-labelledby="destinations-title">
+    <div class="section-heading"><div><p class="eyebrow">PICK YOUR NEXT CHAPTER</p><h2 id="destinations-title">Where will curiosity take you?</h2></div><p>Four places to begin.<br>A Canadian perspective on each.</p></div>
+    <div class="destination-toolbar"><div class="region-filters" aria-label="Filter destinations by region"><button class="active" aria-pressed="true" data-region="all">All destinations</button><button aria-pressed="false" data-region="Asia">Asia</button><button aria-pressed="false" data-region="Europe">Europe</button><button aria-pressed="false" data-region="North America">North America</button></div><span class="edition">THE FIRST EDITION / 4 DESTINATIONS</span></div>
+    <div class="destination-grid" id="destination-grid">
+      <article class="destination-card" data-country="japan" data-region="Asia"><button data-guide="japan" class="card-image" aria-label="Explore Japan"><img src="images/japan.jpg" alt="Traditional wooden buildings and Yasaka Pagoda in Kyoto" width="700" height="800" loading="lazy"><span class="country-code">JP</span><span class="card-arrow">↗</span></button><div class="card-heading"><h3><button data-guide="japan">Japan</button></h3><span>EAST ASIA</span></div><p>Small rituals. Extraordinary days.</p><button class="text-link" data-guide="japan">Open destination starter <span>↗</span></button></article>
+      <article class="destination-card" data-country="portugal" data-region="Europe"><button data-guide="portugal" class="card-image" aria-label="Explore Portugal"><img src="images/portugal.jpg" alt="A yellow tram on a narrow street in Lisbon" width="700" height="800" loading="lazy"><span class="country-code">PT</span><span class="card-arrow">↗</span></button><div class="card-heading"><h3><button data-guide="portugal">Portugal</button></h3><span>EUROPE</span></div><p>Take the scenic way to your next café.</p><button class="text-link" data-guide="portugal">Open destination starter <span>↗</span></button></article>
+      <article class="destination-card" data-country="mexico" data-region="North America"><button data-guide="mexico" class="card-image" aria-label="Explore Mexico"><img src="images/mexico.jpg" alt="Colourful papel picado flags in Mexico" width="700" height="800" loading="lazy"><span class="country-code">MX</span><span class="card-arrow">↗</span></button><div class="card-heading"><h3><button data-guide="mexico">Mexico</button></h3><span>NORTH AMERICA</span></div><p>Go a little beyond the familiar.</p><button class="text-link" data-guide="mexico">Open destination starter <span>↗</span></button></article>
+      <article class="destination-card" data-country="thailand" data-region="Asia"><button data-guide="thailand" class="card-image" aria-label="Explore Thailand"><img src="images/thailand.jpg" alt="Temple architecture in Thailand" width="700" height="800" loading="lazy"><span class="country-code">TH</span><span class="card-arrow">↗</span></button><div class="card-heading"><h3><button data-guide="thailand">Thailand</button></h3><span>SOUTHEAST ASIA</span></div><p>Make room for a different rhythm.</p><button class="text-link" data-guide="thailand">Open destination starter <span>↗</span></button></article>
+    </div>
+    <p class="section-note">Destination starters connect you to official information and a preparation checklist. Detailed country guides are still taking shape.</p>
+  </section>
+  <section class="perspective" id="perspective"><div class="wrap perspective-inner"><div><p class="eyebrow">A DIFFERENT POINT OF DEPARTURE</p><h2>Same world.<br>A perspective<br>closer to <em>home.</em></h2><p class="perspective-intro">A beautiful destination is only half the picture. The other half is knowing what to sort out before you leave Canada.</p><span class="compass" aria-hidden="true">✳</span></div><div class="perspective-list">
+    <article><span>01 / ENTRY</span><h3>Start with your passport.</h3><p>Find the official entry and exit requirements for your destination. Check the rules for your passport, trip purpose and length of stay.</p></article>
+    <article><span>02 / EVERYDAY LIFE</span><h3>Think beyond the plane ticket.</h3><p>Make a plan for your budget in Canadian dollars, card fees, mobile data and the first journey from the airport.</p></article>
+    <article><span>03 / BACK HOME</span><h3>Leave with the loose ends tied.</h3><p>Review your insurance, keep access to your accounts, and leave someone at home with the details they might need.</p></article>
+  </div></div></section>
+  <section id="checklist" class="wrap checklist-section"><div class="checklist-panel"><div class="checklist-copy"><p class="eyebrow">LESS “DID I REMEMBER…?”</p><h2>A little prep.<br>A lighter mind.</h2><p>Your starting checklist for leaving Canada.<br>Tick things off, then take a copy with you.</p><button id="download-checklist" class="cream-button">Download my checklist <span aria-hidden="true">↓</span></button><p class="storage-note" id="storage-note">Progress is saved in this browser. No account needed.</p></div><div class="checklist-items"><div class="checklist-top"><span>BEFORE YOU GO</span><span id="progress-text" aria-live="polite">0 / 6 READY</span></div><progress id="progress" max="6" value="0" aria-label="Checklist completion"></progress><div id="checklist-rows"></div><button class="checklist-reset" id="clear-checklist">Clear checklist</button></div></div></section>
+  <section class="source-section wrap"><span class="source-mark" aria-hidden="true">↗</span><div><p class="eyebrow">A STARTING POINT. WITH THE SOURCE ATTACHED.</p><h2>Clear guidance starts with good sources.</h2><p>Travel rules change. Our destination starters link directly to the Government of Canada so you can check the latest information before making plans.</p></div><a href="https://travel.gc.ca/travelling/advisories" target="_blank" rel="noopener noreferrer">Visit Travel.gc.ca ↗</a></section>
+</main>
+<footer class="wrap"><div class="footer-top"><a href="#" class="brand"><span class="brand-icon" aria-hidden="true">✳</span><span>CANADIAN<br>TRAVEL ATLAS<span class="brand-dot">.</span></span></a><p>Rooted in Canada.<br>Open to the world.</p><a href="#destinations">Find your next chapter ↗</a></div><div class="footer-bottom"><span>© 2026 Canadian Travel Atlas · First edition</span><span>Independent project. Not affiliated with the Government of Canada.</span><a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Photography / Unsplash</a></div></footer>
+<dialog id="guide-dialog" aria-labelledby="guide-title"><button class="close-dialog" aria-label="Close destination starter">×</button><div class="guide-content"></div></dialog>
+</body></html>
+
