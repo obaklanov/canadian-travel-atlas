@@ -57,3 +57,9 @@
 .treasure-reward-line{display:flex;align-items:center;gap:7px;white-space:nowrap;letter-spacing:0;text-transform:none;font-size:clamp(6px,.73vw,9px)}.treasure-reward-line>span{min-width:0}.sombrero-outline{width:27px;height:20px;flex-shrink:0;color:#806039}@media(max-width:700px){.treasure-reward-line{font-size:clamp(5px,1.55vw,8px);gap:4px}.sombrero-outline{width:22px;height:17px}}
 .treasure-reward-line{width:100%;justify-content:space-between;gap:5px;container-type:inline-size;font-size:clamp(7px,2.12cqw,12px);line-height:1.25}.treasure-reward-line>span{flex:1;white-space:nowrap}.sombrero-outline{width:34px;height:26px}#guide-dialog:has(.mexico-treasures).map-ready .country-map svg{transform:scale(1.27);transform-origin:center bottom}#guide-dialog:has(.mexico-treasures).map-ready .country-map{top:180px;height:clamp(240px,46vh,420px)}@media(max-width:700px){.treasure-reward-line{font-size:clamp(5px,2.04cqw,9px);gap:3px}.sombrero-outline{width:26px;height:21px}#guide-dialog:has(.mexico-treasures).map-ready .country-map{top:225px;height:480px}}
 .mexico-treasures{container-type:inline-size}.treasure-reward-line{container-type:normal}
+
+/* Collectible reward: give the hat real visual weight. */
+.treasure-reward-line{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:78px;margin-bottom:12px;font-size:clamp(7px,2.15cqw,12px);color:#62431e;letter-spacing:0}
+.treasure-reward-line>span{flex:1;white-space:normal;line-height:1.5;font-weight:500}
+.sombrero-outline{display:block;width:100px;height:78px;flex:0 0 100px;filter:drop-shadow(0 4px 4px #77502133)}
+@media(max-width:700px){.treasure-reward-line{font-size:10px;min-height:64px;gap:7px}.sombrero-outline{width:82px;height:64px;flex-basis:82px}}
