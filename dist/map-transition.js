@@ -49,7 +49,20 @@ async function animateCountryMap(key, name) {
     svg.setAttribute('viewBox',start.map((v,i)=>v+(target[i]-v)*ease).join(' '));
     svg.querySelectorAll('.other-country').forEach(p=>p.style.opacity=String(1-Math.min(t*1.7,1)));
     if(t<1)requestAnimationFrame(frame);
-    else {panel.classList.add('map-ready');panel.querySelector('.map-status').textContent=name+' / YOUR DESTINATION';}
+    else {panel.classList.add('map-ready');panel.querySelector('.map-status').textContent=name+' / YOUR DESTINATION'; if(key==='mexico')setTimeout(()=>{if(sequence===mapSequence)alignMexicoOutline();},reduced?0:750);}
   }
   requestAnimationFrame(frame);
 }
+
+// Align visible geography, rather than the padded SVG viewport.
+function alignMexicoOutline(){
+ const panel=document.querySelector('#guide-dialog');
+ if(!panel.open||!panel.querySelector('.mexico-treasures')||matchMedia('(max-width:700px)').matches)return;
+ const host=panel.querySelector('.country-map'),outline=host?.querySelector('.selected-country'),label=panel.querySelector('.facts-sources summary');
+ if(!outline||!label)return;
+ host.style.translate='none';
+ const delta=label.getBoundingClientRect().left-outline.getBoundingClientRect().left;
+ host.style.translate=delta+'px 0';
+}
+let mexicoAlignmentTimer;
+window.addEventListener('resize',()=>{clearTimeout(mexicoAlignmentTimer);mexicoAlignmentTimer=setTimeout(alignMexicoOutline,180);});
