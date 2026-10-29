@@ -1,11 +1,12 @@
-const filmPages={thailand:'https://tv.apple.com/ca/movie/the-beach/umc.cmc.4hzvmvt9zchyaxzv7mf2ivf2d',japan:'https://www.netflix.com/ca/title/60023642',mexico:'https://tv.apple.com/ca/movie/coco/umc.cmc.5y1554je00oslx5xtkxv9uk7s',portugal:'https://www.justwatch.com/ca/movie/night-train-to-lisbon'};
+const filmPages={"thailand":"https://www.primevideo.com/detail/0JKQMRKSNRQNQMMOMCJO3AVM82","japan":"https://www.primevideo.com/detail/0R9X0QYZFCKQSZAQVKOJ68D71M","mexico":"https://www.primevideo.com/detail/0KAFM79I4O8BYHNF7NM1K9EJRL","portugal":"https://www.primevideo.com/search/ref=atv_nb_sug?ie=UTF8&phrase=Night%20Train%20to%20Lisbon"};
 // Initial editorial selections; no community votes have been collected.
 const communityPicks={
   "thailand": {
     "song": [
-      "Doo Ter Tum (Doo Doo Doo)",
-      "Job 2 Do",
-      "Playful Thai reggae with a memorable chorus."
+      "Phak Kon (2020)",
+      "MILLI",
+      "A lively Thai rap breakout from the official YUPP! channel.",
+      "https://www.youtube.com/watch?v=rUAuEo3t0-o"
     ],
     "book": [
       "The Beach",
@@ -21,9 +22,10 @@ const communityPicks={
   },
   "japan": {
     "song": [
-      "Linda Linda",
-      "The Blue Hearts",
-      "An energetic Japanese punk singalong."
+      "Idol (2023)",
+      "YOASOBI",
+      "High-energy Japanese pop with a globally recognized anime opening.",
+      "https://www.youtube.com/watch?v=ZRtdQ81jPUQ"
     ],
     "book": [
       "Shōgun",
@@ -39,9 +41,10 @@ const communityPicks={
   },
   "portugal": {
     "song": [
-      "A Minha Casinha",
-      "Xutos & Pontapés",
-      "A rousing Portuguese rock singalong."
+      "Te Amo (2020)",
+      "Calema",
+      "Warm, rhythmic Portuguese-language pop by the São Toméan duo active in Portugal.",
+      "https://www.youtube.com/watch?v=YBMIj1Fj1J4"
     ],
     "book": [
       "Night Train to Lisbon",
@@ -57,9 +60,10 @@ const communityPicks={
   },
   "mexico": {
     "song": [
-      "La Bamba",
-      "Ritchie Valens",
-      "An upbeat rock-and-roll version of a traditional Veracruz song; performed by a Mexican-American artist."
+      "1, 2, 3 (2018)",
+      "Sofía Reyes feat. Jason Derulo & De La Ghetto",
+      "Upbeat bilingual pop led by Mexican singer Sofía Reyes.",
+      "https://www.youtube.com/watch?v=p03TIGqEc8o"
     ],
     "book": [
       "The Hummingbird’s Daughter",
@@ -74,4 +78,4 @@ const communityPicks={
     ]
   }
 };
-function communitySection(key){const p=communityPicks[key];return '<section class="community-section"><h2>Voted by community</h2><p class="community-note">Starting selections from the editor. Community voting and proposals are coming later.</p><div class="community-picks">'+[['song','Song to set the mood','Listen on Spotify'],['book','Book for the journey','Explore the book'],['film','Film to spark adventure','Explore viewing options']].map(([type,label,cta])=>{const [title,creator,description,bookUrl]=p[type];const url=type==='song'?'https://open.spotify.com/search/'+encodeURIComponent(title+' '+creator):type==='film'?filmPages[key]:bookUrl;return '<article><span class="pick-category">'+label+'</span><h3>'+title+'</h3><p class="pick-creator">'+creator+'</p><p>'+description+'</p><a href="'+url+'" target="_blank" rel="noopener noreferrer">'+cta+' ↗</a></article>';}).join('')+'</div><p class="community-note">Links open licensed platforms or publishers. Availability, subscriptions and purchase options vary by region. These are stories and cultural starting points, rather than factual travel guides.</p></section>';}
+function communitySection(key){const p=communityPicks[key];return '<section class="community-section"><h2>Voted by community</h2><p class="community-note">Starting selections from the editor. Community voting and proposals are coming later.</p><div class="community-picks">'+[['song','Song to set the mood','Listen on YouTube'],['book','Book for the journey','Explore the book'],['film','Film to spark adventure','View on Prime Video']].map(([type,label,cta])=>{const [title,creator,description,bookUrl]=p[type];const url=type==='song'?p.song[3]:type==='film'?filmPages[key]:bookUrl;return '<article><span class="pick-category">'+label+'</span><h3>'+title+'</h3><p class="pick-creator">'+creator+'</p><p>'+description+'</p><a href="'+url+'" target="_blank" rel="noopener noreferrer">'+(type==='film'&&key==='portugal'?'Search Prime Video':cta)+' ↗</a></article>';}).join('')+'</div><p class="community-note">Links open licensed platforms or publishers. Availability, subscriptions and purchase options vary by region. These are stories and cultural starting points, rather than factual travel guides.</p></section>';}
