@@ -17,3 +17,13 @@
 #guide-dialog.map-ready .country-map{top:260px;bottom:45px}
 @media(max-width:700px){.country-facts{position:relative;top:auto;left:auto;width:auto;margin:65px 26px 24px}.country-facts h3{font-size:28px}.country-facts small{font-size:10px}#guide-dialog .guide-body{padding-top:18px}#guide-dialog.map-ready .country-map{top:290px;bottom:60px}.facts-sources div{position:relative}.country-facts{display:none}.map-ready .country-facts{display:block}}
 @media(prefers-reduced-motion:reduce){.country-facts{transition:none}}
+
+/* Compact country heading and single-line facts. */
+.map-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.country-facts{top:40px;container-type:inline-size}
+.country-facts h3{font-size:23px;letter-spacing:1.4px;margin-bottom:14px}
+.country-facts p{display:flex;align-items:baseline;gap:5px;white-space:nowrap;font-size:clamp(9px,2.7cqw,11px);margin-bottom:10px}
+.country-facts strong{font-size:1.12em;margin-left:0;font-weight:600}
+.country-facts small{display:inline;font-size:1em;margin-top:0}
+#guide-dialog.map-ready .country-map{top:195px}
+@media(max-width:700px){.country-facts{top:auto;margin-top:55px;margin-left:22px;margin-right:22px}.country-facts h3{font-size:22px}.country-facts p{font-size:clamp(8px,3cqw,11px);gap:4px}.country-facts small{font-size:1em}#guide-dialog.map-ready .country-map{top:225px}}
