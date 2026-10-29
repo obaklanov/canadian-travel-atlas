@@ -32,6 +32,7 @@ function showGuide(key) {
   document.querySelector('.guide-content').innerHTML = `
     <div class="country-map" aria-hidden="true"></div>
     <p class="map-status" role="status">Finding ${country.name} in the atlas…</p>
+    <div class="country-sound"><button type="button" id="country-audio-toggle" aria-label="Mute country anthem">🔊</button><span id="country-audio-status" role="status">Anthem · up to 30 seconds</span></div>
     <section class="country-facts" aria-label="Country at a glance">
       <h3>${country.name}</h3>
       <p><span>Population</span> <strong title="${facts.population.toLocaleString('en-CA')} people">${populationLabel}</strong><small>· ${facts.populationShare}% world · Rank ${facts.populationRank}/${facts.populationCount}</small></p>
@@ -59,6 +60,7 @@ function showGuide(key) {
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop = 0;
   animateCountryMap(key, country.name);
+  startCountryAudio(key);
 }
 document.querySelectorAll('[data-guide]').forEach(button => button.addEventListener('click', () => showGuide(button.dataset.guide)));
 document.querySelector('.close-dialog').onclick = () => dialog.close();
