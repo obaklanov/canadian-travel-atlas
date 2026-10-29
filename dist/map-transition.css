@@ -1,0 +1,12 @@
+#guide-dialog{max-width:1040px;width:calc(100% - 32px);background:#e8d6b4;overflow:auto;border:1px solid #b79a65;box-shadow:0 30px 100px #0009}
+#guide-dialog .guide-content{position:relative;min-height:670px;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 25% 45%,#f5e7c7aa,transparent 70%),repeating-linear-gradient(0deg,#9e78400b 0 1px,transparent 1px 36px),repeating-linear-gradient(90deg,#9e78400b 0 1px,transparent 1px 36px)}
+.country-map{position:absolute;inset:50px 36px 48px;z-index:-1;transition:right .7s,opacity .7s;pointer-events:none}
+.country-map svg{width:100%;height:100%;overflow:visible}.country-map path{fill:#c8b182;stroke:#80633b;stroke-width:.65;fill-rule:evenodd}.country-map .selected-country{fill:#b8995d;stroke:#6f4e28;stroke-width:1.5;filter:drop-shadow(0 3px 3px #74542c33)}
+.map-status{position:absolute;top:28px;left:30px;margin:0;font:10px var(--sans);letter-spacing:2px;color:#705736;text-transform:uppercase}
+.map-credit{position:absolute;bottom:18px;left:30px;font-size:9px;color:#786140;text-decoration:none;z-index:2}
+#guide-dialog .guide-body{position:relative;max-width:570px;margin-left:auto;padding:74px 42px 40px;opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s;visibility:hidden;background:linear-gradient(90deg,transparent,#f5ecd9ed 15%)}
+#guide-dialog.map-ready .guide-body{opacity:1;transform:none;visibility:visible}
+#guide-dialog.map-ready .country-map{right:52%;opacity:.75}
+#guide-dialog .guide-body h2{font-size:51px}#guide-dialog .guide-body p{color:#68563d}#guide-dialog .guide-links a{border-color:#c9b48e;color:#493620}#guide-dialog .close-dialog{background:#f5ecd9;right:14px;top:14px}
+@media(max-width:700px){#guide-dialog .guide-content{min-height:780px}.country-map{inset:70px 30px 70px}#guide-dialog.map-ready .country-map{inset:80px 12px 60px;opacity:.19}#guide-dialog .guide-body{padding:85px 26px 55px;max-width:none;background:#f5ecd980}#guide-dialog .guide-body h2{font-size:43px}.map-status{left:26px;font-size:8px;letter-spacing:1.4px}.map-credit{left:26px;font-size:8px}}
+@media(prefers-reduced-motion:reduce){.country-map,#guide-dialog .guide-body{transition:none}}

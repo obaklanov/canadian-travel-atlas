@@ -27,7 +27,9 @@ function showGuide(key) {
   activeCountry = key;
   const url = 'https://travel.gc.ca/destinations/' + key;
   document.querySelector('.guide-content').innerHTML = `
-    <img class="guide-cover" src="images/${key}.jpg" alt="Destination inspiration: ${country.name}">
+    <div class="country-map" aria-hidden="true"></div>
+    <p class="map-status" role="status">Finding ${country.name} in the atlas…</p>
+    <a class="map-credit" href="https://github.com/johan/world.geo.json" target="_blank" rel="noopener noreferrer">Map outlines / world.geo.json</a>
     <div class="guide-body"><p class="eyebrow">${country.region.toUpperCase()} / DESTINATION STARTER</p>
     <h2 id="guide-title">Before you go to ${country.name}.</h2>
     <p>${country.prompt}</p><p>This first-edition starter brings the official sources together. It is not yet a complete country guide.</p>
@@ -44,6 +46,8 @@ function showGuide(key) {
     document.querySelector('#download-checklist').focus({preventScroll:true});
   };
   if (!dialog.open) dialog.showModal();
+  dialog.scrollTop = 0;
+  animateCountryMap(key, country.name);
 }
 document.querySelectorAll('[data-guide]').forEach(button => button.addEventListener('click', () => showGuide(button.dataset.guide)));
 document.querySelector('.close-dialog').onclick = () => dialog.close();
