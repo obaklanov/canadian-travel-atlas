@@ -53,3 +53,4 @@
 .treasures-label{margin-bottom:10px}.treasure-inline-details{margin-top:16px;padding:15px 17px;border:1px solid #bca373;background:#f1e3c6e8;box-shadow:0 3px 10px #634a2412;color:#493620}
 .treasure-inline-details[hidden]{display:none}.treasure-inline-details h3{font:26px var(--serif);margin:0 0 8px}.treasure-inline-details p{font-size:11px;line-height:1.6;margin:7px 0}.treasure-inline-details .treasure-region{font-size:10px;font-weight:600}.treasure-inline-details .treasure-map-link{font-size:10px;line-height:1.6;display:inline-block}
 @media(max-width:700px){.mexico-treasures{top:auto;padding-bottom:10px}#guide-dialog:has(.mexico-treasures).map-ready .country-map{top:225px;height:480px;max-height:480px}}
+#guide-dialog:has(.mexico-treasures).map-ready .country-map svg{transform:scale(1.15);transform-origin:center bottom}

@@ -15,7 +15,7 @@ async function animateCountryMap(key, name) {
   const ns = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(ns,'svg');
   svg.setAttribute('viewBox','0 0 1000 520');
-  svg.setAttribute('preserveAspectRatio','xMidYMid meet');
+  svg.setAttribute('preserveAspectRatio',key === 'mexico' ? 'xMidYMax meet' : 'xMidYMid meet');
   svg.setAttribute('aria-hidden','true');
   const selectedId = {japan:'JPN',portugal:'PRT',mexico:'MEX',thailand:'THA'}[key];
   let bounds = [Infinity,Infinity,-Infinity,-Infinity];
