@@ -1,4 +1,6 @@
-const filmPages={"thailand":"https://www.primevideo.com/detail/0JKQMRKSNRQNQMMOMCJO3AVM82","japan":"https://www.primevideo.com/detail/0R9X0QYZFCKQSZAQVKOJ68D71M","mexico":"https://www.primevideo.com/detail/0KAFM79I4O8BYHNF7NM1K9EJRL","portugal":"https://www.primevideo.com/search/ref=atv_nb_sug?ie=UTF8&phrase=Night%20Train%20to%20Lisbon"};
+// Book and film links audited 2026-10-29: exact-title pages only. Availability varies by territory.
+const verifiedBookExtras={"thailand":[["Google Books","https://books.google.com/books/about/The_Beach.html?id=Gq1PEAAAQBAJ"]],"japan":[["Google Books","https://books.google.com/books/about/Shogun.html?id=cWAF8_uH1_sC"]],"portugal":[["Google Books","https://books.google.com/books?id=FMLFDiIeYyoC"]],"mexico":[["Author’s website","https://luisurrea.com/books/the-hummingbirds-daughter/"]]};
+const verifiedFilmLinks={"thailand":[["Prime Video","https://www.primevideo.com/detail/0JKQMRKSNRQNQMMOMCJO3AVM82"]],"japan":[["Official distributor","https://gkids.com/films/spirited-away/"],["Blu-ray / DVD","https://store.gkids.com/collections/spirited-away/products/spirited-away"]],"portugal":[["Prime Video","https://www.primevideo.com/detail/0KZZUKISA9XJ0ZXJNQNHHGBVCY"],["Viewing options","https://www.roku.com/whats-on/movies/night-train-to-lisbon?id=11388fb266865e1296fba3cf5d7b313f"]],"mexico":[["Prime Video","https://www.primevideo.com/detail/0KAFM79I4O8BYHNF7NM1K9EJRL"]]};
 // Initial editorial selections; no community votes have been collected.
 const communityPicks={
   "thailand": {
@@ -79,13 +81,12 @@ const communityPicks={
   }
 };
 
-const alternateFilms={thailand:'https://tv.apple.com/movie/the-beach/umc.cmc.4hzvmvt9zchyaxzv7mf2ivf2d',mexico:'https://tv.apple.com/movie/coco/umc.cmc.5y1554je00oslx5xtkxv9uk7s',japan:'https://www.netflix.com/title/60023642',portugal:'https://tv.apple.com/search?term=Night%20Train%20to%20Lisbon'};
 function communitySection(key){
  const p=communityPicks[key];
  return '<section class="community-section"><h2>Set the mood for your trip. Voted by community</h2><div class="community-picks">'+[['song','Song to set the mood'],['book','Book for the journey'],['film','Film to spark adventure']].map(([type,label])=>{
   const [title,creator,description,bookUrl]=p[type];
   const query=encodeURIComponent(title+' '+creator);
-  const links=type==='song'?[['Listen on YouTube',p.song[3]],['Spotify','https://open.spotify.com/search/'+query]]:type==='book'?[['Publisher',bookUrl],['Google Books','https://books.google.com/books?q='+query],['Find in a library','https://search.worldcat.org/search?q='+query]]:[[key==='portugal'?'Search Prime Video':'Prime Video',filmPages[key]],[key==='japan'?'Netflix':key==='portugal'?'Search Apple TV':'Apple TV',alternateFilms[key]],['Where to watch','https://www.justwatch.com/search?q='+encodeURIComponent(title.replace(/ \(\d{4}\)/,''))]];
+  const links=type==='song'?[['Listen on YouTube',p.song[3]],['Spotify','https://open.spotify.com/search/'+query]]:type==='book'?[['Publisher',bookUrl],...verifiedBookExtras[key]]:verifiedFilmLinks[key];
   return '<article><span class="pick-category">'+label.replace(/^(Song|Book|Film)/, '<strong>$1</strong>')+'</span><h3>'+title+'</h3><p class="pick-creator">'+creator+'</p><p>'+description+'</p><div class="resource-links">'+links.map(([text,url])=>'<a href="'+url+'" target="_blank" rel="noopener noreferrer">'+text+' ↗</a>').join('')+'</div></article>';
  }).join('')+'</div></section>';
 }
