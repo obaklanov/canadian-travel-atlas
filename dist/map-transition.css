@@ -38,3 +38,4 @@
 
 .resource-links{display:flex;align-items:baseline;gap:8px 17px;flex-wrap:wrap}.community-picks .resource-links a{white-space:nowrap;margin-top:8px}
 .community-section{margin-top:28.5px;padding-top:21px}.community-section>h2{margin-bottom:12px;line-height:1.05}.community-picks article{padding:13.5px 0}.community-picks h3{margin:6px 0;line-height:1.15}.community-picks p{margin:5.25px 0;line-height:1.45}.community-picks .resource-links a{margin-top:6px}.resource-links{gap:6px 13px}.pick-category strong{font-weight:700;color:#493620;font-size:1.15em;border-bottom:2px solid #ad8850;padding-bottom:2px;margin-right:3px}
+.country-facts p{font-size:clamp(11.25px,3.375cqw,13.75px)}@media(max-width:700px){.country-facts p{font-size:clamp(10px,3.75cqw,13.75px)}}
