@@ -1,5 +1,6 @@
 // Worldometer tables retrieved 2026-10-29. Population estimates: 2026.
 const countryFacts = {
+  "italy": {"population": 58926166, "populationShare": "0.71", "populationRank": 25, "populationCount": 234, "area": 301336, "areaShare": "0.22", "areaRank": 73, "areaCount": 234},
   "japan": {
     "population": 122427731,
     "populationShare": "1.48",

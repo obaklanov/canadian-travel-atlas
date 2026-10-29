@@ -74,3 +74,5 @@
 .ship-reward{display:block;width:70px;height:60px;flex:0 0 70px;filter:drop-shadow(0 4px 4px #77502133)}.portugal-treasures .treasure-badge strong{font-size:clamp(12px,1.25vw,17px)}@media(max-width:700px){.ship-reward{width:57px;height:49px;flex-basis:57px}.portugal-treasures .treasure-badge strong{font-size:12px}}
 
 .sashimi-reward{display:block;width:76px;height:65px;flex:0 0 76px;filter:drop-shadow(0 4px 4px #77502133)}.japan-treasures .treasure-badge strong{font-size:clamp(12px,1.2vw,17px)}@media(max-width:700px){.sashimi-reward{width:61px;height:52px;flex-basis:61px}.japan-treasures .treasure-badge strong{font-size:12px}}
+
+.pizza-reward{display:block;width:76px;height:68px;flex:0 0 76px;filter:drop-shadow(0 4px 4px #77502133)}.italy-treasures .treasure-badge strong{font-size:clamp(11px,1.15vw,16px)}@media(max-width:700px){.pizza-reward{width:61px;height:55px;flex-basis:61px}.italy-treasures .treasure-badge strong{font-size:12px}}

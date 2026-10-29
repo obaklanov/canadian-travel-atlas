@@ -17,7 +17,7 @@ async function animateCountryMap(key, name) {
   svg.setAttribute('viewBox','0 0 1000 520');
   svg.setAttribute('preserveAspectRatio',key === 'mexico' ? 'xMidYMax meet' : 'xMidYMid meet');
   svg.setAttribute('aria-hidden','true');
-  const selectedId = {japan:'JPN',portugal:'PRT',mexico:'MEX',thailand:'THA'}[key];
+  const selectedId = {italy:'ITA',japan:'JPN',portugal:'PRT',mexico:'MEX',thailand:'THA'}[key];
   let bounds = [Infinity,Infinity,-Infinity,-Infinity];
   for (const feature of data.features) {
     const selected = feature.id === selectedId;

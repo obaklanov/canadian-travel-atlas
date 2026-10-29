@@ -1,5 +1,6 @@
 'use strict';
 const countries = {
+  italy: { name: 'Italy', region: 'Europe', prompt: 'Ancient streets, long lunches and a new discovery around every corner.' },
   japan: { name: 'Japan', region: 'East Asia', prompt: 'From your first arrival to the everyday details, start with the practical questions.' },
   portugal: { name: 'Portugal', region: 'Europe', prompt: 'A new routine starts with a little preparation. Gather the essentials for your stay.' },
   mexico: { name: 'Mexico', region: 'North America', prompt: 'Plan for your specific region and route. Country-wide information is only the starting point.' },
@@ -76,7 +77,7 @@ document.querySelector('#destination-search').addEventListener('submit', event =
   const found = Object.keys(countries).find(key => key === query || countries[key].name.toLocaleLowerCase() === query);
   const message = document.querySelector('#search-message');
   if (found) { message.textContent = ''; showGuide(found); }
-  else message.textContent = query ? 'Our first edition covers Japan, Portugal, Mexico and Thailand. Choose one to explore.' : 'Choose a country to get started: Japan, Portugal, Mexico or Thailand.';
+  else message.textContent = query ? 'Our first edition covers Japan, Portugal, Mexico, Thailand and Italy. Choose one to explore.' : 'Choose a country to get started: Japan, Portugal, Mexico, Thailand or Italy.';
 });
 document.querySelectorAll('[data-region]').forEach(button => {
   if (button.tagName !== 'BUTTON') return;

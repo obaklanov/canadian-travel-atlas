@@ -1,0 +1,12 @@
+# Italy source notes — 29 October 2026
+- Population: 58,926,166; 0.71%; rank 25, Worldometer 2026 table: https://www.worldometers.info/world-population/italy-population/
+- Area: 301,336 km²; rank 73, same table convention as existing countries. Share calculated against existing 136,059,683 km² denominator. https://www.worldometers.info/geography/largest-countries-in-the-world/
+- Travel, entry and health: https://travel.gc.ca/destinations/italy
+- Colosseum: https://colosseo.it/en/opening-times-and-tickets/
+- Pisa: https://www.opapisa.it/visita/torre-pendente/
+- Grand Canal coordinates mark the Rialto Bridge stretch, not the whole canal.
+- Song: The Kolors official channel, Italian lyric video, 2023: https://www.youtube.com/watch?v=cIkXBFACp4s
+- Book: publisher https://www.penguinrandomhouse.com/books/109734/under-the-tuscan-sun-by-frances-mayes/ and author https://francesmayesbooks.com/
+- Film: https://www.pixar.com/luca ; https://www.primevideo.com/detail/0HC1PTV8BO25G6GCF85TREEA1I ; https://www.disneyplus.com/browse/entity-f28b825f-c207-406b-923a-67f85e6d90e0
+- Photo: Edoardo Bortoli / Unsplash https://unsplash.com/photos/19ZIEze-Z1k
+- Flight costs, times, daily allowances and seasonal classifications are illustrative prototype data, marked for confirmation in the interface; not live quotes or verified climate recommendations.
