@@ -50,7 +50,7 @@ function showGuide(key) {
       <button data-detail="budget">Budget and costs <span>→</span></button>
       <a href="${url}" target="_blank" rel="noopener noreferrer">Current Canadian travel advice <span>↗</span></a>
     </div><section class="detail-panel" hidden tabindex="-1"></section>
-    <button class="guide-checklist">Build my departure checklist ↓</button>${communitySection(key)}</div>`;
+    <button class="guide-checklist departure-stamp"><span class="stamp-check" aria-hidden="true">✓</span><span class="stamp-copy"><span class="stamp-eyebrow">READY TO GO?</span><span class="stamp-action">Open departure checklist <span aria-hidden="true">→</span></span></span></button>${communitySection(key)}</div>`;
   document.querySelector('.guide-checklist').onclick = () => {
     dialog.close();
     document.querySelector('#checklist').scrollIntoView({behavior:'smooth'});
