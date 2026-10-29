@@ -35,3 +35,5 @@
 
 
 #guide-dialog{max-width:1258px}.community-section{margin-top:38px;padding-top:28px;border-top:1px solid #c9b48e}#guide-dialog .community-section h2{font-size:45px}.community-section .community-note{font-size:10px;line-height:1.7}.community-picks article{padding:18px 0;border-bottom:1px solid #c9b48e}.pick-category{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:#8a6338}.community-picks h3{font:27px var(--serif);margin:8px 0}.community-picks p{margin:7px 0;font-size:12px}.community-picks .pick-creator{font-size:10px}.community-picks a{display:inline-block;font-size:11px;margin-top:8px;text-underline-offset:4px}@media(max-width:700px){#guide-dialog .community-section h2{font-size:36px}}
+
+.resource-links{display:flex;align-items:baseline;gap:8px 17px;flex-wrap:wrap}.community-picks .resource-links a{white-space:nowrap;margin-top:8px}
