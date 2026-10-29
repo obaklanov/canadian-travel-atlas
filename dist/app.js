@@ -60,6 +60,7 @@ function showGuide(key) {
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop = 0;
   animateCountryMap(key, country.name);
+  setupTreasureDetails();
 
 }
 document.querySelectorAll('[data-guide]').forEach(button => button.addEventListener('click', () => showGuide(button.dataset.guide)));
