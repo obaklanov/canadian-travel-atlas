@@ -32,7 +32,6 @@ function showGuide(key) {
   document.querySelector('.guide-content').innerHTML = `
     <div class="country-map" aria-hidden="true"></div>
     <p class="map-status" role="status">Finding ${country.name} in the atlas…</p>
-    <div class="country-sound"><button type="button" id="country-audio-toggle" aria-label="Mute country anthem">🔊</button><span id="country-audio-status" role="status">Anthem · up to 15 seconds</span></div>
     <section class="country-facts" aria-label="Country at a glance">
       <h3>${country.name}</h3>
       <p><span>Population</span> <strong title="${facts.population.toLocaleString('en-CA')} people">${populationLabel}</strong><small>· ${facts.populationShare}% world · Rank ${facts.populationRank}/${facts.populationCount}</small></p>
@@ -50,7 +49,7 @@ function showGuide(key) {
       <button data-detail="budget">Budget and costs <span>→</span></button>
       <a href="${url}" target="_blank" rel="noopener noreferrer">Current Canadian travel advice <span>↗</span></a>
     </div><section class="detail-panel" hidden tabindex="-1"></section>
-    <button class="guide-checklist">Build my departure checklist ↓</button></div>`;
+    <button class="guide-checklist">Build my departure checklist ↓</button>${communitySection(key)}</div>`;
   document.querySelector('.guide-checklist').onclick = () => {
     dialog.close();
     document.querySelector('#checklist').scrollIntoView({behavior:'smooth'});
@@ -60,7 +59,7 @@ function showGuide(key) {
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop = 0;
   animateCountryMap(key, country.name);
-  startCountryAudio(key);
+
 }
 document.querySelectorAll('[data-guide]').forEach(button => button.addEventListener('click', () => showGuide(button.dataset.guide)));
 document.querySelector('.close-dialog').onclick = () => dialog.close();
