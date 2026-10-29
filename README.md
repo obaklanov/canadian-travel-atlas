@@ -26,6 +26,8 @@ The checklist saves progress in the visitor's browser and can be downloaded as a
 
 ## Hosting
 
-The current private site is hosted at https://canadian-travel-atlas.jocundbud512.chatgpt.site.
+The public website is hosted by GitHub Pages at https://obaklanov.github.io/canadian-travel-atlas/.
 
-This GitHub repository stores the source. Pushing changes here does not automatically update the Sites deployment.
+Pushing to `main` automatically publishes the `dist` folder through the Publish website workflow. Check the repository's Actions tab for deployment progress.
+
+The earlier private Sites version remains separate at https://canadian-travel-atlas.jocundbud512.chatgpt.site. GitHub pushes do not update that copy.
