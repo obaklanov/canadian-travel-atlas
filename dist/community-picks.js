@@ -82,7 +82,7 @@ const communityPicks={
 const alternateFilms={thailand:'https://tv.apple.com/movie/the-beach/umc.cmc.4hzvmvt9zchyaxzv7mf2ivf2d',mexico:'https://tv.apple.com/movie/coco/umc.cmc.5y1554je00oslx5xtkxv9uk7s',japan:'https://www.netflix.com/title/60023642',portugal:'https://tv.apple.com/search?term=Night%20Train%20to%20Lisbon'};
 function communitySection(key){
  const p=communityPicks[key];
- return '<section class="community-section"><h2>Voted by community</h2><div class="community-picks">'+[['song','Song to set the mood'],['book','Book for the journey'],['film','Film to spark adventure']].map(([type,label])=>{
+ return '<section class="community-section"><h2>Set the mood - voted by community</h2><div class="community-picks">'+[['song','Song to set the mood'],['book','Book for the journey'],['film','Film to spark adventure']].map(([type,label])=>{
   const [title,creator,description,bookUrl]=p[type];
   const query=encodeURIComponent(title+' '+creator);
   const links=type==='song'?[['Listen on YouTube',p.song[3]],['Spotify','https://open.spotify.com/search/'+query]]:type==='book'?[['Publisher',bookUrl],['Google Books','https://books.google.com/books?q='+query],['Find in a library','https://search.worldcat.org/search?q='+query]]:[[key==='portugal'?'Search Prime Video':'Prime Video',filmPages[key]],[key==='japan'?'Netflix':key==='portugal'?'Search Apple TV':'Apple TV',alternateFilms[key]],['Where to watch','https://www.justwatch.com/search?q='+encodeURIComponent(title.replace(/ \(\d{4}\)/,''))]];
