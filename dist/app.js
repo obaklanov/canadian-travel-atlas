@@ -26,10 +26,18 @@ function showGuide(key) {
   if (!country) return;
   activeCountry = key;
   const url = 'https://travel.gc.ca/destinations/' + key;
+  const facts = countryFacts[key];
+  const populationLabel = (facts.population / 1000000).toFixed(1) + 'M';
+  const areaLabel = facts.area >= 1000000 ? (facts.area / 1000000).toFixed(2) + 'M' : (facts.area / 1000).toFixed(1) + 'k';
   document.querySelector('.guide-content').innerHTML = `
     <div class="country-map" aria-hidden="true"></div>
     <p class="map-status" role="status">Finding ${country.name} in the atlas…</p>
-    <a class="map-credit" href="https://github.com/johan/world.geo.json" target="_blank" rel="noopener noreferrer">Map outlines / world.geo.json</a>
+    <section class="country-facts" aria-label="Country at a glance">
+      <h3>${country.name}</h3>
+      <p><span>Population</span> <strong title="${facts.population.toLocaleString('en-CA')} people">${populationLabel}</strong><small>${facts.populationShare}% of world population · Rank ${facts.populationRank}/${facts.populationCount}</small></p>
+      <p><span>Area</span> <strong title="${facts.area.toLocaleString('en-CA')} km²">${areaLabel} km²</strong><small>${facts.areaShare}% of global country/territory area · Rank ${facts.areaRank}/${facts.areaCount}</small></p>
+      <details class="facts-sources"><summary>Dates, sources &amp; definitions</summary><div>Population: 2026 estimates. Area includes inland water; its world share is calculated from the combined 234 listed countries and territories (136,059,683 km²), excluding oceans and Antarctica. Rankings include territories. Figures retrieved 29 October 2026. M = million; k = thousand.<br><a href="https://www.worldometers.info/world-population/population-by-country/" target="_blank" rel="noopener noreferrer">Population source</a> · <a href="https://www.worldometers.info/geography/largest-countries-in-the-world/" target="_blank" rel="noopener noreferrer">Area source</a></div></details>
+    </section>
     <div class="guide-body"><p class="eyebrow">${country.region.toUpperCase()} / DESTINATION STARTER</p>
     <h2 id="guide-title">Before you go to ${country.name}.</h2>
     <p>${country.prompt}</p><p>This first-edition starter brings the official sources together. It is not yet a complete country guide.</p>

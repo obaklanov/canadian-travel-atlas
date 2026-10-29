@@ -31,3 +31,5 @@ The public website is hosted by GitHub Pages at https://obaklanov.github.io/cana
 Pushing to `main` automatically publishes the `dist` folder through the Publish website workflow. Check the repository's Actions tab for deployment progress.
 
 The earlier private Sites version remains separate at https://canadian-travel-atlas.jocundbud512.chatgpt.site. GitHub pushes do not update that copy.
+
+Country-map outlines: https://github.com/johan/world.geo.json. Country statistics: Worldometer population (2026) and area tables, retrieved 2026-10-29; see the source notes in each guide.
