@@ -42,8 +42,9 @@ async function animateCountryMap(key, name) {
   const duration=reduced?0:1550;
   let alignedOffset = 0;
   const alignDuringZoom = key === 'mexico' && !matchMedia('(max-width:700px)').matches;
-  if (alignDuringZoom) {
-    // Resolve the exact settled geometry before the first painted frame.
+  {
+    // Every country zooms within its settled book-page geometry.
+    // Resolve it before the first painted frame to avoid a second layout movement.
     host.style.transition = 'none';
     panel.classList.add('map-ready');
     svg.setAttribute('viewBox',target.join(' '));
@@ -54,8 +55,10 @@ async function animateCountryMap(key, name) {
     Object.assign(host.style,geometry);
     svg.style.transform = finalTransform;
     svg.style.transformOrigin = finalOrigin;
-    const label = panel.querySelector('.facts-sources summary');
-    alignedOffset = label.getBoundingClientRect().left - svg.querySelector('.selected-country').getBoundingClientRect().left;
+    if (alignDuringZoom) {
+      const label = panel.querySelector('.facts-sources summary');
+      alignedOffset = label.getBoundingClientRect().left - svg.querySelector('.selected-country').getBoundingClientRect().left;
+    }
     panel.classList.remove('map-ready');
     svg.setAttribute('viewBox',start.join(' '));
     host.style.translate = '0px 0';
@@ -85,5 +88,18 @@ function alignMexicoOutline(){
  const delta=label.getBoundingClientRect().left-outline.getBoundingClientRect().left;
  host.style.translate=delta+'px 0';
 }
-let mexicoAlignmentTimer;
-window.addEventListener('resize',()=>{clearTimeout(mexicoAlignmentTimer);mexicoAlignmentTimer=setTimeout(alignMexicoOutline,180);});
+let mapLayoutTimer;
+window.addEventListener('resize',()=>{
+ clearTimeout(mapLayoutTimer);
+ mapLayoutTimer=setTimeout(()=>{
+  const panel=document.querySelector('#guide-dialog');
+  if(!panel.open||!panel.classList.contains('map-ready'))return;
+  const host=panel.querySelector('.country-map'),svg=host?.querySelector('svg');
+  if(!svg)return;
+  // Release the measured desktop geometry so responsive CSS can take over.
+  host.removeAttribute('style');
+  svg.style.removeProperty('transform');
+  svg.style.removeProperty('transform-origin');
+  alignMexicoOutline();
+ },180);
+});
