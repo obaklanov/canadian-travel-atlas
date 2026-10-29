@@ -38,21 +38,24 @@ function showGuide(key) {
       <p><span>Area</span> <strong title="${facts.area.toLocaleString('en-CA')} km²">${areaLabel} km²</strong><small title="Share of combined country and territory area; see definitions">· ${facts.areaShare}% world · Rank ${facts.areaRank}/${facts.areaCount}</small></p>
       <details class="facts-sources"><summary>Dates, sources &amp; definitions</summary><div>Population: 2026 estimates. Area includes inland water; its world share is calculated from the combined 234 listed countries and territories (136,059,683 km²), excluding oceans and Antarctica. Rankings include territories. Figures retrieved 29 October 2026. M = million; k = thousand.<br><a href="https://www.worldometers.info/world-population/population-by-country/" target="_blank" rel="noopener noreferrer">Population source</a> · <a href="https://www.worldometers.info/geography/largest-countries-in-the-world/" target="_blank" rel="noopener noreferrer">Area source</a></div></details>
     </section>
-    <div class="guide-body"><p class="eyebrow">${country.region.toUpperCase()} / DESTINATION STARTER</p>
-    <h2 id="guide-title">Before you go to ${country.name}.</h2>
-    <p>${country.prompt}</p><p>This first-edition starter brings the official sources together. It is not yet a complete country guide.</p>
+    <div class="guide-body"><p class="eyebrow">${country.region.toUpperCase()}</p>
+    <h2 id="guide-title">7 Key details on trip to ${country.name}</h2>
     <div class="guide-links">
+      <a href="${url}#entryexit" target="_blank" rel="noopener noreferrer">Entry requirements and visas <span>↗</span></a>
+      <button data-detail="flights">Flights and routing <span>→</span></button>
+      <button data-detail="season">Best time to go <span>→</span></button>
+      <a href="${url}#health" target="_blank" rel="noopener noreferrer">Health and vaccines <span>↗</span></a>
+      <button data-detail="insurance">Travel insurance <span>→</span></button>
+      <button data-detail="budget">Budget and costs <span>→</span></button>
       <a href="${url}" target="_blank" rel="noopener noreferrer">Current Canadian travel advice <span>↗</span></a>
-      <a href="${url}#entryexit" target="_blank" rel="noopener noreferrer">Entry, exit and passport requirements <span>↗</span></a>
-      <a href="${url}#health" target="_blank" rel="noopener noreferrer">Destination health information <span>↗</span></a>
-      <a href="https://travel.gc.ca/travelling/documents/travel-insurance" target="_blank" rel="noopener noreferrer">Canada’s travel insurance guidance <span>↗</span></a>
-    </div><p class="small">Confirm the rules for your nationality, passport and purpose of travel with the destination authorities. Regional advice and entry requirements can change.</p>
+    </div><section class="detail-panel" hidden tabindex="-1"></section>
     <button class="guide-checklist">Build my departure checklist ↓</button></div>`;
   document.querySelector('.guide-checklist').onclick = () => {
     dialog.close();
     document.querySelector('#checklist').scrollIntoView({behavior:'smooth'});
     document.querySelector('#download-checklist').focus({preventScroll:true});
   };
+  document.querySelectorAll('[data-detail]').forEach(button => button.onclick = () => renderTravelDetail(key, button.dataset.detail));
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop = 0;
   animateCountryMap(key, country.name);
