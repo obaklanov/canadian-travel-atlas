@@ -1,5 +1,8 @@
 // Worldometer tables retrieved 2026-10-29. Population estimates: 2026.
 const countryFacts = {
+"egypt":{"population": 120101175, "populationShare": "1.45", "populationRank": 13, "populationCount": 234, "area": 1002450, "areaShare": "0.74", "areaRank": 30, "areaCount": 234},
+"new-zealand":{"population": 5287479, "populationShare": "0.06", "populationRank": 126, "populationCount": 234, "area": 270467, "areaShare": "0.20", "areaRank": 76, "areaCount": 234},
+
 "argentina":{"population": 46003734, "populationShare": "0.55", "populationRank": 35, "populationCount": 234, "area": 2780400, "areaShare": "2.04", "areaRank": 8, "areaCount": 234},
   "italy": {"population": 58926166, "populationShare": "0.71", "populationRank": 25, "populationCount": 234, "area": 301336, "areaShare": "0.22", "areaRank": 73, "areaCount": 234},
   "japan": {

@@ -90,3 +90,5 @@
 @media(max-width:700px){.guide-detail-icon{width:30px;height:30px;flex-basis:30px}#guide-dialog .guide-links>a,#guide-dialog .guide-links>button{gap:10px;min-height:48px;padding:8px 0}}
 
 .mate-reward{display:block;width:76px;height:68px;flex:0 0 76px;filter:drop-shadow(0 4px 4px #77502133)}.argentina-treasures .treasure-badge strong{font-size:clamp(11px,1.15vw,16px)}.destination-card[data-country="argentina"] .card-image img{object-position:50% 50%}@media(max-width:700px){.mate-reward{width:61px;height:55px;flex-basis:61px}.argentina-treasures .treasure-badge strong{font-size:12px}}
+
+.scarab-reward,.kiwi-reward{display:block;width:76px;height:68px;flex:0 0 76px;filter:drop-shadow(0 4px 4px #77502133)}[data-treasure-country] .treasure-badge strong{font-size:clamp(11px,1.15vw,16px)}.region-filters{flex-wrap:wrap}.destination-toolbar{flex-wrap:wrap;row-gap:12px}@media(max-width:700px){.scarab-reward,.kiwi-reward{width:61px;height:55px;flex-basis:61px}[data-treasure-country] .treasure-badge strong{font-size:12px}}
