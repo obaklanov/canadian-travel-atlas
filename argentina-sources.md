@@ -1,0 +1,14 @@
+# Argentina — 29 October 2026
+- Approved treasures: Iguazú Falls, Perito Moreno Glacier, Plaza de Mayo. Profile reward: mate gourd. Landing photo: Perito Moreno Glacier; future country discussions should include an explicit landing-photo choice.
+- Population 2026: 46,003,734; share 0.55%; rank 35: https://www.worldometers.info/world-population/argentina-population/
+- Area 2,780,400 km²; rank 8; site share uses existing country/territory sum: https://www.worldometers.info/geography/largest-countries-in-the-world/
+- https://www.argentina.travel/en/activities/iguazu-falls
+- https://www.argentina.travel/en/activities/perito-moreno-glacier
+- https://turismo.buenosaires.gob.ar/en/otros-establecimientos/plaza-de-mayo
+- https://www.argentina.travel/en/activities/mate
+- https://travel.gc.ca/destinations/argentina
+- Song: official TINI channel, 2021 https://www.youtube.com/watch?v=mmRBXjVENDQ ; https://www.sonymusic.es/novedad/tini-maria-becerra-mienteme/
+- Book: https://www.penguinrandomhouse.com/books/286569/in-patagonia-by-bruce-chatwin-introduction-by-nicholas-shakespeare/ ; https://www.penguin.co.uk/books/358669/in-patagonia-by-bruce-chatwin/9781448105618
+- Film: https://www.focusfeatures.com/motorcycle_diaries ; https://www.universalpicturesathome.com/movies/the-motorcycle-diaries ; https://www.primevideo.com/detail/0SP2V02EJF5P3CRHECR3DZU3FX . This journey extends beyond Argentina; links verified as exact-title pages, availability varies by region.
+- Landing photo: https://unsplash.com/photos/5RFMPufTKPA ; image 1552751753-0fc84ae5b6c8.
+- Flights, journey times, costs and seasonal classifications remain clearly labelled draft/sample data, using the existing shared round-trip and nights logic. No live fares are connected.

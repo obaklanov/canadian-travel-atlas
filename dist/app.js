@@ -3,6 +3,7 @@ const guideDetailArtwork={"entry": "<rect x=\"12\" y=\"7\" width=\"36\" height=\
 function guideDetailIcon(kind){return '<svg class="guide-detail-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false" stroke-width="1.4" stroke-linejoin="round">'+guideDetailArtwork[kind]+'</svg>';}
 
 const countries = {
+  argentina: { name: 'Argentina', region: 'South America', prompt: 'From glacier country to city plazas, prepare for a journey of contrasts.' },
   italy: { name: 'Italy', region: 'Europe', prompt: 'Ancient streets, long lunches and a new discovery around every corner.' },
   japan: { name: 'Japan', region: 'East Asia', prompt: 'From your first arrival to the everyday details, start with the practical questions.' },
   portugal: { name: 'Portugal', region: 'Europe', prompt: 'A new routine starts with a little preparation. Gather the essentials for your stay.' },
@@ -80,7 +81,7 @@ document.querySelector('#destination-search').addEventListener('submit', event =
   const found = Object.keys(countries).find(key => key === query || countries[key].name.toLocaleLowerCase() === query);
   const message = document.querySelector('#search-message');
   if (found) { message.textContent = ''; showGuide(found); }
-  else message.textContent = query ? 'Our first edition covers Japan, Portugal, Mexico, Thailand and Italy. Choose one to explore.' : 'Choose a country to get started: Japan, Portugal, Mexico, Thailand or Italy.';
+  else message.textContent = query ? 'Our first edition covers Japan, Portugal, Mexico, Thailand, Italy and Argentina. Choose one to explore.' : 'Choose a country to get started: Japan, Portugal, Mexico, Thailand, Italy or Argentina.';
 });
 document.querySelectorAll('[data-region]').forEach(button => {
   if (button.tagName !== 'BUTTON') return;
