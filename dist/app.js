@@ -115,7 +115,7 @@ function saveChecklist() {
 document.querySelector('#clear-checklist').onclick = () => { done.clear();saveChecklist();renderChecklist(); };
 document.querySelector('#download-checklist').onclick = () => {
   const country = activeCountry ? countries[activeCountry].name : 'Your next destination';
-  const text = `CANADIAN TRAVEL ATLAS\nBefore you go — ${country}\n\n` + tasks.map((task,i) => `[${done.has(i)?'x':' '}] ${task}`).join('\n') + `\n\nOfficial travel advice: https://travel.gc.ca/${activeCountry?'destinations/'+activeCountry:'travelling/advisories'}\nInsurance: https://travel.gc.ca/travelling/documents/travel-insurance\n\nA preparation starting point, not a complete country guide. Verify current destination requirements.\n`;
+  const text = `TRAVEL ATLAS\nBefore you go — ${country}\n\n` + tasks.map((task,i) => `[${done.has(i)?'x':' '}] ${task}`).join('\n') + `\n\nOfficial travel advice: https://travel.gc.ca/${activeCountry?'destinations/'+activeCountry:'travelling/advisories'}\nInsurance: https://travel.gc.ca/travelling/documents/travel-insurance\n\nA preparation starting point, not a complete country guide. Verify current destination requirements.\n`;
   const url = URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));
   const a = document.createElement('a');a.href = url;a.download = `canadian-travel-atlas-${activeCountry||'departure'}-checklist.txt`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
 };
