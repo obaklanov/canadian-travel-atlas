@@ -22,12 +22,13 @@ const tasks = [
   'Save documents and share your itinerary'
 ];
 const dialog = document.querySelector('#guide-dialog');
-let activeCountry = null;
+const checklistCountry = new URLSearchParams(window.location.search).get('tripCountry');
+let activeCountry = countries[checklistCountry] ? checklistCountry : null;
 let done = new Set();
 try {
   const saved = JSON.parse(localStorage.getItem('canadian-atlas-checklist') || '[]');
   if (Array.isArray(saved)) done = new Set(saved.filter(i => Number.isInteger(i) && i >= 0 && i < tasks.length));
-} catch { document.querySelector('#storage-note').textContent = 'Progress is available for this visit. Download a copy to keep it.'; }
+} catch { if(document.querySelector('#storage-note'))document.querySelector('#storage-note').textContent = 'Progress is available for this visit. Download a copy to keep it.'; }
 
 function showGuide(key) {
   const country = countries[key];
@@ -61,6 +62,7 @@ function showGuide(key) {
     <button class="guide-checklist departure-stamp"><span class="stamp-check" aria-hidden="true">✓</span><span class="stamp-copy"><span class="stamp-eyebrow">READY TO GO?</span><span class="stamp-action">Open departure checklist <span aria-hidden="true">→</span></span></span></button>${communitySection(key)}</div>`;
   document.querySelector('.guide-checklist').onclick = () => {
     dialog.close();
+    if(!document.querySelector('#checklist')){window.location.href='index.html?tripCountry='+encodeURIComponent(key)+'#checklist';return;}
     document.querySelector('#checklist').scrollIntoView({behavior:'smooth'});
     document.querySelector('#download-checklist').focus({preventScroll:true});
   };
@@ -78,12 +80,12 @@ dialog.addEventListener('click', event => {
   const rect = dialog.getBoundingClientRect();
   if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
 });
-document.querySelector('#destination-search').addEventListener('submit', event => {
+document.querySelector('#destination-search')?.addEventListener('submit', event => {
   event.preventDefault();
   const query = document.querySelector('#destination').value.trim().toLocaleLowerCase();
   const found = Object.keys(countries).find(key => key === query || countries[key].name.toLocaleLowerCase() === query);
   const message = document.querySelector('#search-message');
-  if (found) { message.textContent = ''; showGuide(found); }
+  if (found) { message.textContent = ''; if(!document.querySelector('#destination-grid')){window.location.href='destinations.html?country='+encodeURIComponent(found);return;} showGuide(found); }
   else message.textContent = query ? 'Our first edition covers Japan, Portugal, Mexico, Thailand, Italy, Argentina, Egypt and New Zealand. Choose one to explore.' : 'Choose a country to get started: Japan, Portugal, Mexico, Thailand, Italy, Argentina, Egypt or New Zealand.';
 });
 document.querySelectorAll('[data-region]').forEach(button => {
@@ -97,7 +99,7 @@ document.querySelectorAll('[data-region]').forEach(button => {
   });
 });
 function renderChecklist() {
-  const rows = document.querySelector('#checklist-rows');rows.replaceChildren();
+  const rows = document.querySelector('#checklist-rows');if(!rows)return;rows.replaceChildren();
   tasks.forEach((task, index) => {
     const label = document.createElement('label');label.className = 'check-row';
     const input = document.createElement('input');input.type = 'checkbox';input.checked = done.has(index);
@@ -109,14 +111,20 @@ function renderChecklist() {
 function updateProgress() { document.querySelector('#progress').value = done.size;document.querySelector('#progress-text').textContent = `${done.size} / ${tasks.length} READY`; }
 function saveChecklist() {
   try { localStorage.setItem('canadian-atlas-checklist',JSON.stringify([...done])); }
-  catch { document.querySelector('#storage-note').textContent = 'Progress is available for this visit. Download a copy to keep it.'; }
+  catch { if(document.querySelector('#storage-note'))document.querySelector('#storage-note').textContent = 'Progress is available for this visit. Download a copy to keep it.'; }
   updateProgress();
 }
-document.querySelector('#clear-checklist').onclick = () => { done.clear();saveChecklist();renderChecklist(); };
-document.querySelector('#download-checklist').onclick = () => {
+if(document.querySelector('#clear-checklist'))document.querySelector('#clear-checklist').onclick = () => { done.clear();saveChecklist();renderChecklist(); };
+if(document.querySelector('#download-checklist'))document.querySelector('#download-checklist').onclick = () => {
   const country = activeCountry ? countries[activeCountry].name : 'Your next destination';
   const text = `TRAVEL ATLAS\nBefore you go — ${country}\n\n` + tasks.map((task,i) => `[${done.has(i)?'x':' '}] ${task}`).join('\n') + `\n\nOfficial travel advice: https://travel.gc.ca/${activeCountry?'destinations/'+activeCountry:'travelling/advisories'}\nInsurance: https://travel.gc.ca/travelling/documents/travel-insurance\n\nA preparation starting point, not a complete country guide. Verify current destination requirements.\n`;
   const url = URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));
   const a = document.createElement('a');a.href = url;a.download = `canadian-travel-atlas-${activeCountry||'departure'}-checklist.txt`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
 };
 renderChecklist();
+
+// Destination links from Home open the same country starter on its dedicated page.
+if(document.querySelector('#destination-grid')){
+ const requestedCountry=new URLSearchParams(window.location.search).get('country');
+ if(requestedCountry&&countries[requestedCountry])showGuide(requestedCountry);
+}
