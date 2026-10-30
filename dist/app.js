@@ -62,7 +62,7 @@ function showGuide(key) {
     <button class="guide-checklist departure-stamp"><span class="stamp-check" aria-hidden="true">✓</span><span class="stamp-copy"><span class="stamp-eyebrow">READY TO GO?</span><span class="stamp-action">Open departure checklist <span aria-hidden="true">→</span></span></span></button>${communitySection(key)}</div>`;
   document.querySelector('.guide-checklist').onclick = () => {
     dialog.close();
-    if(!document.querySelector('#checklist')){window.location.href='index.html?tripCountry='+encodeURIComponent(key)+'#checklist';return;}
+    if(!document.querySelector('#checklist')){window.location.href='planning.html?tripCountry='+encodeURIComponent(key);return;}
     document.querySelector('#checklist').scrollIntoView({behavior:'smooth'});
     document.querySelector('#download-checklist').focus({preventScroll:true});
   };
@@ -127,4 +127,22 @@ renderChecklist();
 if(document.querySelector('#destination-grid')){
  const requestedCountry=new URLSearchParams(window.location.search).get('country');
  if(requestedCountry&&countries[requestedCountry])showGuide(requestedCountry);
+}
+
+// Keep country context when opening the dedicated departure checklist.
+if (document.querySelector('#planning-title') && activeCountry) {
+  const name = countries[activeCountry].name;
+  document.querySelector('#planning-title').textContent = 'Get ready for ' + name + '.';
+  const destinationNote = document.querySelector('#planning-destination');
+  destinationNote.textContent = 'Destination: ' + name;
+  destinationNote.hidden = false;
+  const back = document.querySelector('#planning-back');
+  back.href = 'destinations.html?country=' + encodeURIComponent(activeCountry);
+  back.textContent = '← Back to ' + name;
+  document.title = name + ' departure checklist — Your Travel Atlas';
+}
+// Preserve old shared checklist links after moving the checklist off Home.
+if (!document.querySelector('#checklist') && !document.querySelector('#destination-grid') &&
+    (activeCountry || window.location.hash === '#checklist')) {
+  window.location.replace('planning.html' + (activeCountry ? '?tripCountry=' + encodeURIComponent(activeCountry) : ''));
 }
