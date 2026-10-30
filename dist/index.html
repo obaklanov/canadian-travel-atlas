@@ -2,46 +2,45 @@
 <html lang="en-CA">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Go places. Collect stories. Plan your next trip, celebrate where you’ve been, and share the journey.">
+  <meta name="description" content="Explore destinations, estimate your travel budget and build your departure checklist. Your next trip starts here—free to explore, no account needed.">
   <meta name="theme-color" content="#241b13"><title>Travel Atlas — Go places. Collect stories.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="atlas-theme.css?v=about-1"><link rel="stylesheet" href="map-transition.css?v=egypt-nz-1"><script src="map-transition.js?v=egypt-nz-1" defer></script><script src="country-facts.js?v=egypt-nz-1" defer></script><script src="travel-details.js?v=egypt-nz-1" defer></script><script src="community-picks.js?v=egypt-nz-1" defer></script><script src="treasures.js?v=egypt-nz-1" defer></script><script src="app.js?v=navigation-1" defer></script>
+<link rel="stylesheet" href="clarity.css?v=clarity-1">
 </head>
-<body>
-<a class="skip" href="destinations.html">Explore destinations</a>
+<body class="home-page">
+<a class="skip" href="#main-content">Skip to content</a>
 <header class="site-header wrap">
   <a class="brand" href="index.html" aria-label="Your Travel Atlas home"><span>YOUR TRAVEL<br>ATLAS</span></a>
-  <nav aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a><a href="destinations.html">Destinations</a><a href="profile.html">Profile</a><a href="community.html">Community</a></nav>
+  <nav aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a><a href="destinations.html">Destinations</a><a href="profile.html" class="profile-nav">Profile</a></nav>
 </header>
-<main>
-  <section class="hero wrap atlas-hero" aria-labelledby="hero-title">
-    <div class="hero-copy">
-      <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE.</p>
-      <h1 id="hero-title">Go places.<br>Collect <em>stories.</em></h1>
-      <p class="intro">Plan your next trip, celebrate where you’ve been,<br>and share the journey.</p>
-      <div class="hero-actions" aria-label="Start your journey"><a class="hero-action-primary" href="destinations.html">Plan your trip <span aria-hidden="true">↗</span></a><a href="profile.html">Report your trip</a><a href="community.html">Share your trip</a></div>
-      <form id="destination-search" class="destination-search">
-        <label for="destination">WHERE ARE YOU HEADED?</label>
-        <div class="search-row"><span aria-hidden="true" class="search-icon">⌕</span><input id="destination" list="country-options" placeholder="Find a country…" autocomplete="off"><datalist id="country-options"><option value="Japan"><option value="Portugal"><option value="Mexico"><option value="Thailand"><option value="Italy"><option value="Argentina"><option value="Egypt"><option value="New Zealand"></datalist><button type="submit" aria-label="Find destination">Explore <span aria-hidden="true">↗</span></button></div>
+<main id="main-content">
+  <section class="clear-hero wrap" aria-labelledby="hero-title">
+    <div class="clear-hero-copy">
+      <p class="eyebrow">GO PLACES. COLLECT STORIES.</p>
+      <h1 id="hero-title">Your next trip<br>starts <em>here.</em></h1>
+      <p class="clear-intro">Explore destinations, estimate your budget and build your departure checklist.</p>
+      <form id="destination-search" class="clear-search">
+        <label for="destination">Where would you like to go?</label>
+        <div class="clear-search-row"><select id="destination" required><option value="" disabled selected>Choose a country</option><option value="argentina">Argentina</option><option value="egypt">Egypt</option><option value="italy">Italy</option><option value="japan">Japan</option><option value="mexico">Mexico</option><option value="new-zealand">New Zealand</option><option value="portugal">Portugal</option><option value="thailand">Thailand</option></select><button type="submit">Explore destination <span aria-hidden="true">↗</span></button></div>
+        <p id="search-message" class="search-message" role="status"></p>
+        <p class="clear-search-note">Free to explore. No account needed.</p>
       </form>
-      <p id="search-message" class="search-message" role="status"></p>
-      <div class="quick-picks"><span>Start somewhere:</span><a href="destinations.html?country=japan">Japan</a><a href="destinations.html?country=portugal">Portugal</a><a href="destinations.html?country=mexico">Mexico</a></div>
-      <div class="hero-note"><span class="line"></span> Less tab-hopping. More looking forward.</div>
+      <a class="clear-profile-link" href="profile.html">Already been somewhere? Mark where you’ve been <span aria-hidden="true">↗</span></a>
     </div>
-    <a class="atlas-scroll" href="destinations.html"><span>YOUR NEXT CHAPTER AWAITS</span> ↓</a><span class="atlas-caption">THE ART OF GETTING LOST. THE CONFIDENCE TO GO.</span>
+    <div class="clear-map" aria-hidden="true"><img src="images/antique-atlas.png" alt="" fetchpriority="high"><span>A world of possibilities.</span></div>
   </section>
   <div class="foundation wrap"><span><b>01</b> Plan your next trip</span><span><b>02</b> Celebrate where you’ve been</span><span><b>03</b> Share the journey</span></div>
 
-  <section class="atlas-about" id="about" aria-labelledby="about-title"><div class="wrap about-inner">
-    <div class="about-heading"><p class="eyebrow">ABOUT TRAVEL ATLAS</p><span class="about-chapter">A NOTE TO FELLOW EXPLORERS</span><h2 id="about-title">For those who<br>still believe in<br><em>exploration.</em></h2><div class="about-compass" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="46"/><circle cx="60" cy="60" r="39"/><path d="M60 5v15m0 80v15M5 60h15m80 0h15M60 23l9 28 28 9-28 9-9 28-9-28-28-9 28-9Z"/><path d="M60 23v37l9-9ZM97 60H60l9 9ZM60 97V60l-9 9ZM23 60h37l-9-9Z" fill="currentColor" opacity=".35"/><circle cx="60" cy="60" r="4"/></svg><span>THERE IS STILL MORE TO DISCOVER</span></div></div>
-    <div class="about-copy"><p class="about-lead">We are travellers at heart.</p><p>We believe life is a journey, and we want to see how many chapters the world holds. We’re drawn to unfamiliar streets, faraway landscapes and the places that make us feel part of something bigger.</p><p>We love adventure films, dog-eared books and maps that send our imaginations wandering. We still believe our planet holds mysteries worth exploring—and that finding our own way through it helps us grow.</p><p>Travel Atlas is being built for people who share that curiosity: a home for planning the next journey, celebrating the one just completed and passing the best discoveries on.</p>
-    <div class="about-mission"><p class="eyebrow">ONE ATLAS. THREE WAYS TO BEGIN.</p><h3>Plan it. Live it.<br>Bring back a story.</h3><p>Find a place that calls to you. Gather the details. Return with memories, treasures and ideas to share with fellow explorers.</p><p class="about-start">Start with <a href="destinations.html">Plan your trip</a>, <a href="profile.html">Report your trip</a> or <a href="community.html">Share your trip</a>. That’s where the next chapter begins.</p></div>
-    </div></div></section>
+  <section class="clear-about wrap" id="about" aria-labelledby="about-title">
+    <div><p class="eyebrow">ABOUT YOUR TRAVEL ATLAS</p><h2 id="about-title">For the curious.<br>For the journey.</h2></div>
+    <div><p>We’re travellers at heart—drawn to unfamiliar streets, adventure stories and the places that stay with us.</p><p>Your Travel Atlas brings practical trip details and your personal travel map together. Start with a destination. Make it part of your story.</p><a href="destinations.html">Browse all 8 destinations <span aria-hidden="true">↗</span></a></div>
+  </section>
   <section id="checklist" class="wrap checklist-section"><div class="checklist-panel"><div class="checklist-copy"><p class="eyebrow">LESS “DID I REMEMBER…?”</p><h2>A little prep.<br>A lighter mind.</h2><p>Your starting checklist for the journey ahead.<br>Tick things off, then take a copy with you.</p><button id="download-checklist" class="cream-button">Download my checklist <span aria-hidden="true">↓</span></button><p class="storage-note" id="storage-note">Progress is saved in this browser. No account needed.</p></div><div class="checklist-items"><div class="checklist-top"><span>BEFORE YOU GO</span><span id="progress-text" aria-live="polite">0 / 6 READY</span></div><progress id="progress" max="6" value="0" aria-label="Checklist completion"></progress><div id="checklist-rows"></div><button class="checklist-reset" id="clear-checklist">Clear checklist</button></div></div></section>
   <section class="source-section wrap"><span class="source-mark" aria-hidden="true">↗</span><div><p class="eyebrow">A STARTING POINT. WITH THE SOURCE ATTACHED.</p><h2>Clear guidance starts with good sources.</h2><p>Travel rules change. Country pages currently link to Canadian government guidance; check entry requirements for your own passport before making plans.</p></div><a href="https://travel.gc.ca/travelling/advisories" target="_blank" rel="noopener noreferrer">Visit Travel.gc.ca ↗</a></section>
 </main>
-<footer class="wrap"><div class="footer-top"><a href="index.html" class="brand"><span>TRAVEL<br>ATLAS<span class="brand-dot">.</span></span></a><p>Go places.<br>Collect stories.</p><a href="destinations.html">Find your next chapter ↗</a></div><div class="footer-bottom"><span>© 2026 Travel Atlas · First edition</span><span>Atlas artwork: AI-generated</span><span>Independent travel project.</span><a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Destination photography / Unsplash</a></div></footer>
+<footer class="wrap"><div class="footer-top"><a href="index.html" class="brand"><span>TRAVEL<br>ATLAS<span class="brand-dot">.</span></span></a><p>Go places.<br>Collect stories.</p><a href="destinations.html">Find your next chapter ↗</a></div><div class="footer-bottom"><span>© 2026 Travel Atlas · First edition</span><span>Atlas artwork: AI-generated</span><a href="community.html">Community</a><span>Independent travel project.</span><a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Destination photography / Unsplash</a></div></footer>
 <dialog id="guide-dialog" aria-labelledby="guide-title"><button class="close-dialog" aria-label="Close destination starter">×</button><div class="guide-content"></div></dialog>
 </body></html>
 
